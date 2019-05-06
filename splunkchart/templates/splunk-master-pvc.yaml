@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: splunk-master-data
+  labels:
+    app: splunk
+    role: splunk_cluster_master
+    tier: management
+spec:
+  storageClassName: managed-premium
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 64Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: splunk-master-config
+  labels:
+    app: splunk
+    role: splunk_cluster_master
+    tier: management
+spec:
+  storageClassName: managed-premium
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 32Gi
+
