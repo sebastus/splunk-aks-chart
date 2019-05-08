@@ -3,12 +3,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: master 
+  namespace: splunk
   labels:
     app: splunk
     role: splunk_cluster_master
     tier: management
 spec:
   replicas: {{ .Values.master.replicaCount | default 1 }}
+  selector:
+    matchLabels:
+      app: splunk
+      role: splunk_cluster_master
   template:
     metadata:
       labels:

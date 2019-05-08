@@ -2,12 +2,17 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: indexer
+  namespace: splunk
   labels:
     app: splunk
     role: splunk_indexer
     tier: indexer
 spec:
   replicas: {{ .Values.indexer.replicaCount | default 3 }}
+  selector:
+    matchLabels:
+      app: splunk
+      role: splunk_indexer
   serviceName: indexer
   volumeClaimTemplates:
   - metadata:

@@ -2,12 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: search 
+  namespace: splunk
   labels:
     app: splunk
     role: splunk_search_head
     tier: search
 spec:
   replicas: {{ .Values.search.replicaCount | default 1 }}
+  selector:
+    matchLabels:
+      app: splunk
+      role: splunk_search_head
   template:
     metadata:
       labels:
