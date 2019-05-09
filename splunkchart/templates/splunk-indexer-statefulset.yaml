@@ -69,7 +69,10 @@ spec:
             - name: SPLUNK_SEARCH_HEAD_URL
               value: search
             - name: SPLUNK_PASSWORD
-              value: helloworld
+              valueFrom:
+                secretKeyRef:
+                  name: splunk-admin
+                  key: password
             - name: DEBUG
               value: "true"
           ports:

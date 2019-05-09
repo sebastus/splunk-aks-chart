@@ -36,7 +36,10 @@ spec:
             - name: SPLUNK_ROLE
               value: splunk_search_head
             - name: SPLUNK_PASSWORD
-              value: helloworld
+              valueFrom:
+                secretKeyRef:
+                  name: splunk-admin
+                  key: password
             - name: SPLUNK_START_ARGS
               value: "--accept-license"
             - name: SPLUNK_CLUSTER_MASTER_URL

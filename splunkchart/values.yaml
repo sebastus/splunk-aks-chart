@@ -1,8 +1,8 @@
 indexer:
-#  replicaCount: 3
+  replicaCount: null # Defaults to 3 if not specified (null)
 
 master:
-#  replicaCount: 1
+  replicaCount: null # Defaults to 1 if not specified (null)
 
 search:
-#  replicaCount: 1
+  replicaCount: null # Defaults to 1 if not specified (null)
