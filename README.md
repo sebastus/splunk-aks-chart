@@ -25,8 +25,10 @@ kubectl -n splunk create configmap nginx-data-www --from-file=./defaults
 
 Now you can go ahead and deploy the defaults web service, using helm.
 
+The default admin user password for splunk is configured via a Kubernetes secret. The secret is also created as part of the Helm chart and needs to be passed in when you install the chart.
+
 ```shell
-helm install splunkdefaults --namespace splunk
+helm install splunkdefaults --namespace splunk --set splunk_password='your password'
 ```
 
 If you want to verify this is working you can use the `kubectl proxy` command and view the following link in a browser
@@ -62,6 +64,11 @@ kubectl port-forward -n splunk master-7d9777994d-8xcrd 8000:8000
 
  * http://localhost:8000/
 
+If you have direct conectivity to the virtual network, for example from a VM or via VPN, then you can also access the UI via the internal loadbalancer endpoint. To find the IP address, use:
+
+```shell
+kubectl get service webui -n splunk
+```
 
 
 [splunk-k8s]: https://www.splunk.com/blog/2018/12/17/deploy-splunk-enterprise-on-kubernetes-splunk-connect-for-kubernetes-and-splunk-insights-for-containers-beta-part-1.html "Deploy Splunk Enterprise on Kubernetes"
