@@ -28,7 +28,7 @@ Now you can go ahead and deploy the defaults web service, using helm.
 The default admin user password for splunk is configured via a Kubernetes secret. The secret is also created as part of the Helm chart and needs to be passed in when you install the chart.
 
 ```shell
-helm install splunkdefaults --namespace splunk --set splunk_password='your password'
+helm install splunkdefaults --namespace splunk
 ```
 
 If you want to verify this is working you can use the `kubectl proxy` command and view the following link in a browser
@@ -38,7 +38,7 @@ If you want to verify this is working you can use the `kubectl proxy` command an
 Now deploy Splunk itself.
 
 ```shell
-helm install splunkchart --namespace splunk
+helm install splunkchart --namespace splunk --set splunk_password='your password'
 ```
 
 The Splunk UI doesn't work with the proxy URLs, but you can set up port forwarding to test.
