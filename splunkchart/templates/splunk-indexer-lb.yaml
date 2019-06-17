@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: indexer-lb
   namespace: splunk
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
   labels:
     app: splunk
     role: splunk_indexer
