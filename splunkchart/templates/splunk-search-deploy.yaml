@@ -24,7 +24,7 @@ spec:
       dnsPolicy: ClusterFirst
       dnsConfig:
         searches:
-          - indexer.splunk.svc.cluster.local
+          - indexer.{{ .Values.general.namespace | default "splunk" }}.svc.cluster.local
       containers:
         - name: search
           image: splunk/splunk:latest

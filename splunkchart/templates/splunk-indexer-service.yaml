@@ -13,9 +13,9 @@ spec:
     role: splunk_indexer
     tier: indexer
   ports:
-    - name: splunkweb
-      port: 8000
-      targetPort: 8000
+    - name: hec
+      port: 8088
+      targetPort: 8088
     - name: splunkd
       port: 8089
       targetPort: 8089

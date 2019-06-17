@@ -6,3 +6,6 @@ master:
 
 search:
   replicaCount: null # Defaults to 1 if not specified (null)
+
+general:
+  namespace: null   # defaults to splunk if not specified
