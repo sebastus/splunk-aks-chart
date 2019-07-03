@@ -28,12 +28,10 @@ spec:
           - proxy.{{ .Values.general.namespace | default "splunk" }}.svc.cluster.local
       containers:
         - name: indexer
-          image: sebastus/splunkproxyfunction:v1.0.0
+          image: sebastus/splunkproxyfunction:v1.0.1
           env:
             - name: AzureWebJobsStorage
               value: {{ .Values.proxy.AzureWebJobsStorage }} 
-            - name: inputHubName
-              value: {{ .Values.proxy.inputHubName }}
             - name: hubConnection
               value:  {{ .Values.proxy.hubConnection }}
             - name: splunkAddress
