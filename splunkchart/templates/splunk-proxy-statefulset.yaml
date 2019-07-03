@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: proxy
+  namespace: splunk
+  labels:
+    app: splunk
+    role: splunk_proxy
+    tier: proxy
+spec:
+  replicas: {{ .Values.proxy.replicaCount | default 3 }}
+  selector:
+    matchLabels:
+      app: splunk
+      role: splunk_proxy
+  serviceName: proxy
+  template:
+    metadata:
+      labels:
+        app: splunk
+        role: splunk_proxy
+        tier: proxy
+    spec:
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        searches:
+          - proxy.{{ .Values.general.namespace | default "splunk" }}.svc.cluster.local
+      containers:
+        - name: indexer
+          image: sebastus/splunkproxyfunction:v1.0.0
+          env:
+            - name: AzureWebJobsStorage
+              value: {{ .Values.proxy.AzureWebJobsStorage }} 
+            - name: input-hub-name
+              value: {{ .Values.proxy.input-hub-name }}
+            - name: hubConnection
+              value:  {{ .Values.proxy.hubConnection }}
+            - name: splunkAddress
+              value: {{ .Values.proxy.splunkAddress }}
+            - name: splunkToken
+              value: {{ .Values.proxy.splunkToken }}
+            - name: splunkCertThumbprint
+              value: {{ .Values.proxy.splunkCertThumbprint }}
+
