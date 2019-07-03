@@ -32,8 +32,8 @@ spec:
           env:
             - name: AzureWebJobsStorage
               value: {{ .Values.proxy.AzureWebJobsStorage }} 
-            - name: input-hub-name
-              value: {{ .Values.proxy.input-hub-name }}
+            - name: inputHubName
+              value: {{ .Values.proxy.inputHubName }}
             - name: hubConnection
               value:  {{ .Values.proxy.hubConnection }}
             - name: splunkAddress
