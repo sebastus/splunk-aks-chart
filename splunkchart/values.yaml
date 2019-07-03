@@ -9,3 +9,6 @@ search:
 
 general:
   namespace: null   # defaults to splunk if not specified
+
+proxy:
+  replicaCount: null # defaults to 3

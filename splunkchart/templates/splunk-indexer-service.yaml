@@ -25,4 +25,4 @@ spec:
     - name: s2s
       port: 9997
       targetPort: 9997
-  clusterIP: None
+
