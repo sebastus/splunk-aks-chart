@@ -1,0 +1,12 @@
+proxy:
+  replicaCount: null # defaults to 3
+  AzureWebJobsStorage: DefaultEndpointsProtocol=https;AccountName=asdtlogsqpq1e4nbap;AccountKey=lVigehM7ZRwVngrFB0HtswOXMBC+IbDDNukSSgTu/Q5lSSM8tOaS1mpRt5vK99fIl+gCKzcKnU6fxgM161yk9w==
+  hubConnection: Endpoint=sb://eh-splunk2f73f7ed-audit.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=5UGTV4Ozs2qLhghBL/atv0dfK5588a8mkz1QCDKI+0A= 
+  splunkAddress: https://indexer-lb-hec.splunk.svc.cluster.local:8088/services/collector
+  splunkToken: 6cd6af2c-e96f-483a-b587-dc9d1f17764a
+  splunkCertThumbprint: 39e41d46954c315f2fc56f7e62229a7e7422ab44
+
+general:
+  namespace: null
+
+

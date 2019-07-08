@@ -1,0 +1,12 @@
+proxy:
+  replicaCount: null # defaults to 3
+  AzureWebJobsStorage: DefaultEndpointsProtocol=https;AccountName={account-name};AccountKey={account-key}
+  hubConnection: Endpoint=sb://{eh-namespace}.servicebus.windows.net/;SharedAccessKeyName={policy-name};SharedAccessKey={policy-key} 
+  splunkAddress: https://indexer-lb-hec.splunk.svc.cluster.local:8088/services/collector
+  splunkToken: {splunk-hec-token}
+  splunkCertThumbprint: 39e41d46954c315f2fc56f7e62229a7e7422ab44
+
+general:
+  namespace: null
+
+
