@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backup 
+  namespace: splunk
+  labels:
+    app: splunk
+    role: splunk_backup
+    tier: backup
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: splunk
+      role: splunk_backup
+  template:
+    metadata:
+      labels:
+        app: splunk
+        role: splunk_backup
+        tier: backup
+    spec:
+      hostname: backup
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        searches:
+          - indexer.splunk.svc.cluster.local
+      containers:
+        - name: backup 
+          image: sebastus/splunk-aks-backup:v0.0.9 
