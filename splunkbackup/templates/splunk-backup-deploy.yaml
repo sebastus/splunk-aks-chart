@@ -28,4 +28,4 @@ spec:
           - indexer.splunk.svc.cluster.local
       containers:
         - name: backup 
-          image: sebastus/splunk-aks-backup:v0.0.9 
+          image: sebastus/splunk-aks-backup-func:v0.0.4 
