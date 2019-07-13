@@ -1,3 +1,3 @@
 defaults/
 splunkchart/values.yaml
-splunkproxy/values.yaml
+splunkProxy/values.yaml
