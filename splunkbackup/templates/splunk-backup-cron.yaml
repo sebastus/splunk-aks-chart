@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: splunk-backup
 spec:
-  schedule: "0 */2 * * *"
+  schedule: "*/20 * * * *"
   jobTemplate:
     spec:
       concurrencyPolicy: Forbid
