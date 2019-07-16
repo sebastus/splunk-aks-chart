@@ -2,4 +2,4 @@ defaults/
 splunkchart/values.yaml
 splunkProxy/values.yaml
 splunkbackup/values.yaml
-
+adhoc/values.yaml
