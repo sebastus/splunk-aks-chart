@@ -48,5 +48,10 @@ spec:
                 secretKeyRef:
                   name: splunk-backup-admin
                   key: aks_name            
+            - name: AI_INSTRUMENTATION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: splunk-backup-admin
+                  key: ai_instrumentation_key
 
           restartPolicy: Never

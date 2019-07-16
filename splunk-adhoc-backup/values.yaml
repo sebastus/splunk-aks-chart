@@ -6,4 +6,5 @@ backup:
   aks_rg:                gregAksRg
   aks_asset_rg:          MC_gregAksRg_gregAksCluster_uksouth
   aks_name:              gregAksCluster
+  ai_instrumentation_key: 148b913b-2236-43a1-a600-b396d250c976
   
