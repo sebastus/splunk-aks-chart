@@ -1,0 +1,10 @@
+backup:
+  azure_tenant_id:       <guid>
+  azure_app_id:          <guid>
+  azure_app_key:         <key>
+  azure_subscription_id: <guid>
+  aks_rg:                <rg containing cluster>
+  aks_asset_rg:          <rg containing nodes, disks, etc>
+  aks_name:              <cluster name>
+  ai_instrumentation_key: <guid>
+  
