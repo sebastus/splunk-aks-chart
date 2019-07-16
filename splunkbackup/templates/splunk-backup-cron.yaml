@@ -1,0 +1,52 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: splunk-backup
+spec:
+  schedule: "0 */2 * * *"
+  jobTemplate:
+    spec:
+      concurrencyPolicy: Forbid
+      template:
+        spec:
+          containers:
+          - name: backup
+            image: sebastus/splunk-aks-backup-func:v0.0.5
+            env:
+            - name: AZURE_TENANT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: splunk-backup-admin
+                  key: azure_tenant_id            
+            - name: AZURE_APP_ID
+              valueFrom:
+                secretKeyRef:
+                  name: splunk-backup-admin
+                  key: azure_app_id            
+            - name: AZURE_APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: splunk-backup-admin
+                  key: azure_app_key            
+            - name: AZURE_SUBSCRIPTION_ID
+              valueFrom:
+                secretKeyRef:
+                  name: splunk-backup-admin
+                  key: azure_subscription_id            
+            - name: AKS_RG
+              valueFrom:
+                secretKeyRef:
+                  name: splunk-backup-admin
+                  key: aks_rg            
+            - name: AKS_ASSET_RG
+              valueFrom:
+                secretKeyRef:
+                  name: splunk-backup-admin
+                  key: aks_asset_rg            
+            - name: AKS_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: splunk-backup-admin
+                  key: aks_name            
+
+          restartPolicy: Never
